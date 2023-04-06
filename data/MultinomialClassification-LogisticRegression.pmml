@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
+	<Header>
+		<Application name="SkLearn2PMML package" version="0.91.1"/>
+		<Timestamp>2023-04-06T14:35:38Z</Timestamp>
+	</Header>
+	<DataDictionary>
+		<DataField name="target" optype="categorical" dataType="string">
+			<Value value="BARBUNYA"/>
+			<Value value="BOMBAY"/>
+			<Value value="CALI"/>
+			<Value value="DERMASON"/>
+			<Value value="HOROZ"/>
+			<Value value="SEKER"/>
+			<Value value="SIRA"/>
+		</DataField>
+		<DataField name="Area" optype="continuous" dataType="double"/>
+		<DataField name="Perimeter" optype="continuous" dataType="double"/>
+		<DataField name="MajorAxisLength" optype="continuous" dataType="double"/>
+		<DataField name="MinorAxisLength" optype="continuous" dataType="double"/>
+		<DataField name="AspectRation" optype="continuous" dataType="double"/>
+		<DataField name="Eccentricity" optype="continuous" dataType="double"/>
+		<DataField name="ConvexArea" optype="continuous" dataType="double"/>
+		<DataField name="EquivDiameter" optype="continuous" dataType="double"/>
+		<DataField name="Extent" optype="continuous" dataType="double"/>
+		<DataField name="Solidity" optype="continuous" dataType="double"/>
+		<DataField name="roundness" optype="continuous" dataType="double"/>
+		<DataField name="Compactness" optype="continuous" dataType="double"/>
+		<DataField name="ShapeFactor1" optype="continuous" dataType="double"/>
+		<DataField name="ShapeFactor2" optype="continuous" dataType="double"/>
+		<DataField name="ShapeFactor3" optype="continuous" dataType="double"/>
+		<DataField name="ShapeFactor4" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<RegressionModel functionName="classification" algorithmName="sklearn.linear_model._logistic.LogisticRegression" normalizationMethod="softmax">
+		<MiningSchema>
+			<MiningField name="target" usageType="target"/>
+			<MiningField name="Area" missingValueReplacement="58380.0" missingValueTreatment="asMedian"/>
+			<MiningField name="Perimeter" missingValueReplacement="955.7613299416824" missingValueTreatment="asMedian"/>
+			<MiningField name="MajorAxisLength" missingValueReplacement="366.5211214" missingValueTreatment="asMedian"/>
+			<MiningField name="MinorAxisLength" missingValueReplacement="212.17918408975163" missingValueTreatment="asMedian"/>
+			<MiningField name="AspectRation" missingValueReplacement="1.5773990358806336" missingValueTreatment="asMedian"/>
+			<MiningField name="Eccentricity" missingValueReplacement="0.7725175495611608" missingValueTreatment="asMedian"/>
+			<MiningField name="ConvexArea" missingValueReplacement="59273.0" missingValueTreatment="asMedian"/>
+			<MiningField name="EquivDiameter" missingValueReplacement="272.638563583781" missingValueTreatment="asMedian"/>
+			<MiningField name="Extent" missingValueReplacement="0.763753128" missingValueTreatment="asMedian"/>
+			<MiningField name="Solidity" missingValueReplacement="0.9879132566199582" missingValueTreatment="asMedian"/>
+			<MiningField name="roundness" missingValueReplacement="0.861966728" missingValueTreatment="asMedian"/>
+			<MiningField name="Compactness" missingValueReplacement="0.7943558076045284" missingValueTreatment="asMedian"/>
+			<MiningField name="ShapeFactor1" missingValueReplacement="0.006021994" missingValueTreatment="asMedian"/>
+			<MiningField name="ShapeFactor2" missingValueReplacement="0.0013020861072946" missingValueTreatment="asMedian"/>
+			<MiningField name="ShapeFactor3" missingValueReplacement="0.6311595989627414" missingValueTreatment="asMedian"/>
+			<MiningField name="ShapeFactor4" missingValueReplacement="0.9955620601354194" missingValueTreatment="asMedian"/>
+		</MiningSchema>
+		<Output>
+			<OutputField name="probability(BARBUNYA)" optype="continuous" dataType="double" feature="probability" value="BARBUNYA"/>
+			<OutputField name="probability(BOMBAY)" optype="continuous" dataType="double" feature="probability" value="BOMBAY"/>
+			<OutputField name="probability(CALI)" optype="continuous" dataType="double" feature="probability" value="CALI"/>
+			<OutputField name="probability(DERMASON)" optype="continuous" dataType="double" feature="probability" value="DERMASON"/>
+			<OutputField name="probability(HOROZ)" optype="continuous" dataType="double" feature="probability" value="HOROZ"/>
+			<OutputField name="probability(SEKER)" optype="continuous" dataType="double" feature="probability" value="SEKER"/>
+			<OutputField name="probability(SIRA)" optype="continuous" dataType="double" feature="probability" value="SIRA"/>
+		</Output>
+		<LocalTransformations>
+			<DerivedField name="standardScaler(Area)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="Area"/>
+						<Constant dataType="double">75809.95610451922</Constant>
+					</Apply>
+					<Constant dataType="double">50102.95719076242</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(Perimeter)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="Perimeter"/>
+						<Constant dataType="double">1009.5481911038942</Constant>
+					</Apply>
+					<Constant dataType="double">317.49763393161396</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(MajorAxisLength)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="MajorAxisLength"/>
+						<Constant dataType="double">376.91929064309164</Constant>
+					</Apply>
+					<Constant dataType="double">122.13384886736328</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(MinorAxisLength)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="MinorAxisLength"/>
+						<Constant dataType="double">236.321731647129</Constant>
+					</Apply>
+					<Constant dataType="double">72.39467934173926</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(AspectRation)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="AspectRation"/>
+						<Constant dataType="double">1.599972072321255</Constant>
+					</Apply>
+					<Constant dataType="double">0.239998720639843</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(Eccentricity)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="Eccentricity"/>
+						<Constant dataType="double">0.7576186747481387</Constant>
+					</Apply>
+					<Constant dataType="double">0.08803667268167852</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(ConvexArea)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="ConvexArea"/>
+						<Constant dataType="double">76842.86824871945</Constant>
+					</Apply>
+					<Constant dataType="double">50773.456756522275</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(EquivDiameter)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="EquivDiameter"/>
+						<Constant dataType="double">296.82462599684123</Constant>
+					</Apply>
+					<Constant dataType="double">91.75880885593253</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(Extent)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="Extent"/>
+						<Constant dataType="double">0.7536195832725133</Constant>
+					</Apply>
+					<Constant dataType="double">0.046661917447325695</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(Solidity)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="Solidity"/>
+						<Constant dataType="double">0.9868041730294932</Constant>
+					</Apply>
+					<Constant dataType="double">0.004709552831434166</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(roundness)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="roundness"/>
+						<Constant dataType="double">0.8605099206308149</Constant>
+					</Apply>
+					<Constant dataType="double">0.059776166882628524</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(Compactness)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="Compactness"/>
+						<Constant dataType="double">0.795208327656354</Constant>
+					</Apply>
+					<Constant dataType="double">0.05967409484828468</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(ShapeFactor1)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="ShapeFactor1"/>
+						<Constant dataType="double">0.0058507034306387855</Constant>
+					</Apply>
+					<Constant dataType="double">0.0014680575394068968</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(ShapeFactor2)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="ShapeFactor2"/>
+						<Constant dataType="double">0.0014953714060445718</Constant>
+					</Apply>
+					<Constant dataType="double">6.223185428686207E-4</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(ShapeFactor3)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="ShapeFactor3"/>
+						<Constant dataType="double">0.6360260317935386</Constant>
+					</Apply>
+					<Constant dataType="double">0.09556552534610398</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(ShapeFactor4)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="ShapeFactor4"/>
+						<Constant dataType="double">0.9945167711772359</Constant>
+					</Apply>
+					<Constant dataType="double">0.004220802913432251</Constant>
+				</Apply>
+			</DerivedField>
+		</LocalTransformations>
+		<RegressionTable intercept="8.951777603572884" targetCategory="BARBUNYA">
+			<NumericPredictor name="standardScaler(Area)" coefficient="0.7144324258007138"/>
+			<NumericPredictor name="standardScaler(Perimeter)" coefficient="1.5134526351383129"/>
+			<NumericPredictor name="standardScaler(MajorAxisLength)" coefficient="0.9737063907780559"/>
+			<NumericPredictor name="standardScaler(MinorAxisLength)" coefficient="1.5599988266212195"/>
+			<NumericPredictor name="standardScaler(AspectRation)" coefficient="-0.7282127957619814"/>
+			<NumericPredictor name="standardScaler(Eccentricity)" coefficient="-1.239984676096405"/>
+			<NumericPredictor name="standardScaler(ConvexArea)" coefficient="0.7497503410782674"/>
+			<NumericPredictor name="standardScaler(EquivDiameter)" coefficient="1.28479553085256"/>
+			<NumericPredictor name="standardScaler(Extent)" coefficient="0.1367605990008044"/>
+			<NumericPredictor name="standardScaler(Solidity)" coefficient="-2.1413437214131235"/>
+			<NumericPredictor name="standardScaler(roundness)" coefficient="-2.180634978711343"/>
+			<NumericPredictor name="standardScaler(Compactness)" coefficient="0.8502760881280529"/>
+			<NumericPredictor name="standardScaler(ShapeFactor1)" coefficient="-2.709829360659475"/>
+			<NumericPredictor name="standardScaler(ShapeFactor2)" coefficient="-1.3673254317123427"/>
+			<NumericPredictor name="standardScaler(ShapeFactor3)" coefficient="0.8849672862730693"/>
+			<NumericPredictor name="standardScaler(ShapeFactor4)" coefficient="2.3201208483306317"/>
+		</RegressionTable>
+		<RegressionTable intercept="2.5563905572399377" targetCategory="BOMBAY">
+			<NumericPredictor name="standardScaler(Area)" coefficient="3.1637832388264333"/>
+			<NumericPredictor name="standardScaler(Perimeter)" coefficient="2.731991696254131"/>
+			<NumericPredictor name="standardScaler(MajorAxisLength)" coefficient="2.5922138022745815"/>
+			<NumericPredictor name="standardScaler(MinorAxisLength)" coefficient="3.096152585084779"/>
+			<NumericPredictor name="standardScaler(AspectRation)" coefficient="-0.546992375781351"/>
+			<NumericPredictor name="standardScaler(Eccentricity)" coefficient="-0.7050257393171688"/>
+			<NumericPredictor name="standardScaler(ConvexArea)" coefficient="3.172458228432741"/>
+			<NumericPredictor name="standardScaler(EquivDiameter)" coefficient="2.8774871016864916"/>
+			<NumericPredictor name="standardScaler(Extent)" coefficient="0.3930915722974246"/>
+			<NumericPredictor name="standardScaler(Solidity)" coefficient="-0.5210163262105376"/>
+			<NumericPredictor name="standardScaler(roundness)" coefficient="0.6728107291178741"/>
+			<NumericPredictor name="standardScaler(Compactness)" coefficient="0.6063779585444974"/>
+			<NumericPredictor name="standardScaler(ShapeFactor1)" coefficient="-2.162696612383194"/>
+			<NumericPredictor name="standardScaler(ShapeFactor2)" coefficient="-0.8990075850250792"/>
+			<NumericPredictor name="standardScaler(ShapeFactor3)" coefficient="0.6324636995471754"/>
+			<NumericPredictor name="standardScaler(ShapeFactor4)" coefficient="-0.8153934454305349"/>
+		</RegressionTable>
+		<RegressionTable intercept="7.056268384301918" targetCategory="CALI">
+			<NumericPredictor name="standardScaler(Area)" coefficient="0.6133910811313573"/>
+			<NumericPredictor name="standardScaler(Perimeter)" coefficient="1.3050532155920485"/>
+			<NumericPredictor name="standardScaler(MajorAxisLength)" coefficient="1.8984640242014736"/>
+			<NumericPredictor name="standardScaler(MinorAxisLength)" coefficient="1.3129810613102333"/>
+			<NumericPredictor name="standardScaler(AspectRation)" coefficient="0.4414011758273041"/>
+			<NumericPredictor name="standardScaler(Eccentricity)" coefficient="0.9728252737333546"/>
+			<NumericPredictor name="standardScaler(ConvexArea)" coefficient="0.6156289688056326"/>
+			<NumericPredictor name="standardScaler(EquivDiameter)" coefficient="1.6570482417619623"/>
+			<NumericPredictor name="standardScaler(Extent)" coefficient="0.2592725343524723"/>
+			<NumericPredictor name="standardScaler(Solidity)" coefficient="-0.42823002990583736"/>
+			<NumericPredictor name="standardScaler(roundness)" coefficient="1.9220179648697233"/>
+			<NumericPredictor name="standardScaler(Compactness)" coefficient="-0.7774535805455078"/>
+			<NumericPredictor name="standardScaler(ShapeFactor1)" coefficient="-3.7252893601886816"/>
+			<NumericPredictor name="standardScaler(ShapeFactor2)" coefficient="-2.1237512442606175"/>
+			<NumericPredictor name="standardScaler(ShapeFactor3)" coefficient="-0.834189215773963"/>
+			<NumericPredictor name="standardScaler(ShapeFactor4)" coefficient="-1.4190505298323186"/>
+		</RegressionTable>
+		<RegressionTable intercept="-15.018293817948184" targetCategory="DERMASON">
+			<NumericPredictor name="standardScaler(Area)" coefficient="-2.19991780232575"/>
+			<NumericPredictor name="standardScaler(Perimeter)" coefficient="-3.1976216319805584"/>
+			<NumericPredictor name="standardScaler(MajorAxisLength)" coefficient="-3.321268654888082"/>
+			<NumericPredictor name="standardScaler(MinorAxisLength)" coefficient="-3.550869141954474"/>
+			<NumericPredictor name="standardScaler(AspectRation)" coefficient="-0.4104837880379745"/>
+			<NumericPredictor name="standardScaler(Eccentricity)" coefficient="1.2197327114086267"/>
+			<NumericPredictor name="standardScaler(ConvexArea)" coefficient="-2.2024332077411004"/>
+			<NumericPredictor name="standardScaler(EquivDiameter)" coefficient="-3.4804874599767923"/>
+			<NumericPredictor name="standardScaler(Extent)" coefficient="-0.31660912347304326"/>
+			<NumericPredictor name="standardScaler(Solidity)" coefficient="0.27894879506845877"/>
+			<NumericPredictor name="standardScaler(roundness)" coefficient="1.1724557220517755"/>
+			<NumericPredictor name="standardScaler(Compactness)" coefficient="-0.11460389173074108"/>
+			<NumericPredictor name="standardScaler(ShapeFactor1)" coefficient="7.1267631456111955"/>
+			<NumericPredictor name="standardScaler(ShapeFactor2)" coefficient="3.8921038835288186"/>
+			<NumericPredictor name="standardScaler(ShapeFactor3)" coefficient="-0.32497396066916295"/>
+			<NumericPredictor name="standardScaler(ShapeFactor4)" coefficient="-0.44226535334237166"/>
+		</RegressionTable>
+		<RegressionTable intercept="-2.9871231562381912" targetCategory="HOROZ">
+			<NumericPredictor name="standardScaler(Area)" coefficient="-0.6993999426423261"/>
+			<NumericPredictor name="standardScaler(Perimeter)" coefficient="-0.6050860229480226"/>
+			<NumericPredictor name="standardScaler(MajorAxisLength)" coefficient="-0.2548111705983143"/>
+			<NumericPredictor name="standardScaler(MinorAxisLength)" coefficient="-1.0678244683541893"/>
+			<NumericPredictor name="standardScaler(AspectRation)" coefficient="2.916967488723121"/>
+			<NumericPredictor name="standardScaler(Eccentricity)" coefficient="1.104060991403354"/>
+			<NumericPredictor name="standardScaler(ConvexArea)" coefficient="-0.7123077220395565"/>
+			<NumericPredictor name="standardScaler(EquivDiameter)" coefficient="-0.724239106013734"/>
+			<NumericPredictor name="standardScaler(Extent)" coefficient="-0.05516394791714592"/>
+			<NumericPredictor name="standardScaler(Solidity)" coefficient="0.17108805428755178"/>
+			<NumericPredictor name="standardScaler(roundness)" coefficient="-1.023165025145041"/>
+			<NumericPredictor name="standardScaler(Compactness)" coefficient="-2.1368702976167633"/>
+			<NumericPredictor name="standardScaler(ShapeFactor1)" coefficient="1.499566478104217"/>
+			<NumericPredictor name="standardScaler(ShapeFactor2)" coefficient="-0.7683988868526977"/>
+			<NumericPredictor name="standardScaler(ShapeFactor3)" coefficient="-1.9012529538123115"/>
+			<NumericPredictor name="standardScaler(ShapeFactor4)" coefficient="-2.163822442705168"/>
+		</RegressionTable>
+		<RegressionTable intercept="-2.783497235321966" targetCategory="SEKER">
+			<NumericPredictor name="standardScaler(Area)" coefficient="-0.05966168005585055"/>
+			<NumericPredictor name="standardScaler(Perimeter)" coefficient="0.04195235072560529"/>
+			<NumericPredictor name="standardScaler(MajorAxisLength)" coefficient="-0.24871526829723764"/>
+			<NumericPredictor name="standardScaler(MinorAxisLength)" coefficient="-0.05599651736209671"/>
+			<NumericPredictor name="standardScaler(AspectRation)" coefficient="-1.056217407864094"/>
+			<NumericPredictor name="standardScaler(Eccentricity)" coefficient="-2.1244434864610393"/>
+			<NumericPredictor name="standardScaler(ConvexArea)" coefficient="-0.07607631605518356"/>
+			<NumericPredictor name="standardScaler(EquivDiameter)" coefficient="-0.1568982512709291"/>
+			<NumericPredictor name="standardScaler(Extent)" coefficient="-0.24198757603128865"/>
+			<NumericPredictor name="standardScaler(Solidity)" coefficient="2.6434209617946607"/>
+			<NumericPredictor name="standardScaler(roundness)" coefficient="-0.9591151260668471"/>
+			<NumericPredictor name="standardScaler(Compactness)" coefficient="1.6109775804626798"/>
+			<NumericPredictor name="standardScaler(ShapeFactor1)" coefficient="-0.19498654760341316"/>
+			<NumericPredictor name="standardScaler(ShapeFactor2)" coefficient="2.135963207870649"/>
+			<NumericPredictor name="standardScaler(ShapeFactor3)" coefficient="1.7737984827707367"/>
+			<NumericPredictor name="standardScaler(ShapeFactor4)" coefficient="3.509038731645868"/>
+		</RegressionTable>
+		<RegressionTable intercept="2.2244776643939708" targetCategory="SIRA">
+			<NumericPredictor name="standardScaler(Area)" coefficient="-1.5326273207345835"/>
+			<NumericPredictor name="standardScaler(Perimeter)" coefficient="-1.7897422427815193"/>
+			<NumericPredictor name="standardScaler(MajorAxisLength)" coefficient="-1.639589123470485"/>
+			<NumericPredictor name="standardScaler(MinorAxisLength)" coefficient="-1.2944423453454703"/>
+			<NumericPredictor name="standardScaler(AspectRation)" coefficient="-0.6164622971050364"/>
+			<NumericPredictor name="standardScaler(Eccentricity)" coefficient="0.7728349253292838"/>
+			<NumericPredictor name="standardScaler(ConvexArea)" coefficient="-1.5470202924808136"/>
+			<NumericPredictor name="standardScaler(EquivDiameter)" coefficient="-1.4577060570395661"/>
+			<NumericPredictor name="standardScaler(Extent)" coefficient="-0.17536405822921833"/>
+			<NumericPredictor name="standardScaler(Solidity)" coefficient="-0.0028677336211581695"/>
+			<NumericPredictor name="standardScaler(roundness)" coefficient="0.3956307138838794"/>
+			<NumericPredictor name="standardScaler(Compactness)" coefficient="-0.03870385724221037"/>
+			<NumericPredictor name="standardScaler(ShapeFactor1)" coefficient="0.1664722571193451"/>
+			<NumericPredictor name="standardScaler(ShapeFactor2)" coefficient="-0.8695839435487381"/>
+			<NumericPredictor name="standardScaler(ShapeFactor3)" coefficient="-0.23081333833552192"/>
+			<NumericPredictor name="standardScaler(ShapeFactor4)" coefficient="-0.9886278086660938"/>
+		</RegressionTable>
+		<ModelVerification recordCount="10">
+			<VerificationFields>
+				<VerificationField field="Area" column="data:Area"/>
+				<VerificationField field="Perimeter" column="data:Perimeter"/>
+				<VerificationField field="MajorAxisLength" column="data:MajorAxisLength"/>
+				<VerificationField field="MinorAxisLength" column="data:MinorAxisLength"/>
+				<VerificationField field="AspectRation" column="data:AspectRation"/>
+				<VerificationField field="Eccentricity" column="data:Eccentricity"/>
+				<VerificationField field="ConvexArea" column="data:ConvexArea"/>
+				<VerificationField field="EquivDiameter" column="data:EquivDiameter"/>
+				<VerificationField field="Extent" column="data:Extent"/>
+				<VerificationField field="Solidity" column="data:Solidity"/>
+				<VerificationField field="roundness" column="data:roundness"/>
+				<VerificationField field="Compactness" column="data:Compactness"/>
+				<VerificationField field="ShapeFactor1" column="data:ShapeFactor1"/>
+				<VerificationField field="ShapeFactor2" column="data:ShapeFactor2"/>
+				<VerificationField field="ShapeFactor3" column="data:ShapeFactor3"/>
+				<VerificationField field="ShapeFactor4" column="data:ShapeFactor4"/>
+				<VerificationField field="probability(BARBUNYA)" column="data:probability_BARBUNYA" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+				<VerificationField field="probability(BOMBAY)" column="data:probability_BOMBAY" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+				<VerificationField field="probability(CALI)" column="data:probability_CALI" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+				<VerificationField field="probability(DERMASON)" column="data:probability_DERMASON" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+				<VerificationField field="probability(HOROZ)" column="data:probability_HOROZ" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+				<VerificationField field="probability(SEKER)" column="data:probability_SEKER" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+				<VerificationField field="probability(SIRA)" column="data:probability_SIRA" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+			</VerificationFields>
+			<InlineTable>
+				<row>
+					<data:Area>159272.0</data:Area>
+					<data:Perimeter>1519.5767135201752</data:Perimeter>
+					<data:MajorAxisLength>546.6146873870626</data:MajorAxisLength>
+					<data:MinorAxisLength>372.15448700183686</data:MinorAxisLength>
+					<data:AspectRation>1.469360488729278</data:AspectRation>
+					<data:Eccentricity>0.7316666371391645</data:Eccentricity>
+					<data:ConvexArea>161361.0</data:ConvexArea>
+					<data:EquivDiameter>450.3249283794792</data:EquivDiameter>
+					<data:Extent>0.7803352442886528</data:Extent>
+					<data:Solidity>0.9870561592462174</data:Solidity>
+					<data:roundness>0.8668074334661517</data:roundness>
+					<data:Compactness>0.8240081435061439</data:Compactness>
+					<data:ShapeFactor1>0.0034319554485179</data:ShapeFactor1>
+					<data:ShapeFactor2>9.763998132056E-4</data:ShapeFactor2>
+					<data:ShapeFactor3>0.679130398178131</data:ShapeFactor3>
+					<data:ShapeFactor4>0.9970879906469106</data:ShapeFactor4>
+					<data:probability_BARBUNYA>2.448587662671731E-4</data:probability_BARBUNYA>
+					<data:probability_BOMBAY>0.9997470303839775</data:probability_BOMBAY>
+					<data:probability_CALI>8.110849755361649E-6</data:probability_CALI>
+					<data:probability_DERMASON>6.67994777783219E-43</data:probability_DERMASON>
+					<data:probability_HOROZ>4.113118608044893E-24</data:probability_HOROZ>
+					<data:probability_SEKER>7.085308904040579E-17</data:probability_SEKER>
+					<data:probability_SIRA>1.8562225528086304E-22</data:probability_SIRA>
+				</row>
+				<row>
+					<data:Area>31543.0</data:Area>
+					<data:Perimeter>657.103</data:Perimeter>
+					<data:MajorAxisLength>249.883935</data:MajorAxisLength>
+					<data:MinorAxisLength>161.1579807</data:MinorAxisLength>
+					<data:AspectRation>1.550552656</data:AspectRation>
+					<data:Eccentricity>0.764240518</data:Eccentricity>
+					<data:ConvexArea>31863.0</data:ConvexArea>
+					<data:EquivDiameter>200.4040792</data:EquivDiameter>
+					<data:Extent>0.698564911</data:Extent>
+					<data:Solidity>0.989957003</data:Solidity>
+					<data:roundness>0.918006931</data:roundness>
+					<data:Compactness>0.801988648</data:Compactness>
+					<data:ShapeFactor1>0.007922009</data:ShapeFactor1>
+					<data:ShapeFactor2>0.002021566</data:ShapeFactor2>
+					<data:ShapeFactor3>0.643185792</data:ShapeFactor3>
+					<data:ShapeFactor4>0.997293438</data:ShapeFactor4>
+					<data:probability_BARBUNYA>9.860340328541647E-11</data:probability_BARBUNYA>
+					<data:probability_BOMBAY>5.3771611611837964E-17</data:probability_BOMBAY>
+					<data:probability_CALI>7.898702994634531E-12</data:probability_CALI>
+					<data:probability_DERMASON>0.9990811022648483</data:probability_DERMASON>
+					<data:probability_HOROZ>7.53058485377655E-9</data:probability_HOROZ>
+					<data:probability_SEKER>3.088516644966657E-7</data:probability_SEKER>
+					<data:probability_SIRA>9.185812464004851E-4</data:probability_SIRA>
+				</row>
+				<row>
+					<data:Area>37191.0</data:Area>
+					<data:Perimeter>698.872</data:Perimeter>
+					<data:MajorAxisLength>234.8888511</data:MajorAxisLength>
+					<data:MinorAxisLength>201.7636663</data:MinorAxisLength>
+					<data:AspectRation>1.164178147</data:AspectRation>
+					<data:Eccentricity>0.512017418</data:Eccentricity>
+					<data:ConvexArea>37541.0</data:ConvexArea>
+					<data:EquivDiameter>217.607564</data:EquivDiameter>
+					<data:Extent>0.787361067</data:Extent>
+					<data:Solidity>0.99067686</data:Solidity>
+					<data:roundness>0.956868897</data:roundness>
+					<data:Compactness>0.92642781</data:Compactness>
+					<data:ShapeFactor1>0.006315744</data:ShapeFactor1>
+					<data:ShapeFactor2>0.002869793</data:ShapeFactor2>
+					<data:ShapeFactor3>0.858268488</data:ShapeFactor3>
+					<data:ShapeFactor4>0.999177418</data:ShapeFactor4>
+					<data:probability_BARBUNYA>5.832179170799744E-8</data:probability_BARBUNYA>
+					<data:probability_BOMBAY>3.174917159596378E-14</data:probability_BOMBAY>
+					<data:probability_CALI>3.347165028956304E-15</data:probability_CALI>
+					<data:probability_DERMASON>1.2871035255946787E-6</data:probability_DERMASON>
+					<data:probability_HOROZ>3.6500127479800477E-20</data:probability_HOROZ>
+					<data:probability_SEKER>0.9999985622982022</data:probability_SEKER>
+					<data:probability_SIRA>9.227644547144297E-8</data:probability_SIRA>
+				</row>
+				<row>
+					<data:Area>39950.0</data:Area>
+					<data:Perimeter>739.0075146066982</data:Perimeter>
+					<data:MajorAxisLength>250.4834179182897</data:MajorAxisLength>
+					<data:MinorAxisLength>203.3916388687939</data:MinorAxisLength>
+					<data:AspectRation>1.2315436904260535</data:AspectRation>
+					<data:Eccentricity>0.5836261400675663</data:Eccentricity>
+					<data:ConvexArea>40413.0</data:ConvexArea>
+					<data:EquivDiameter>225.5350563009181</data:EquivDiameter>
+					<data:Extent>0.7550859709967637</data:Extent>
+					<data:Solidity>0.9885395405734584</data:Solidity>
+					<data:roundness>0.9192428579280728</data:roundness>
+					<data:Compactness>0.9004027786572508</data:Compactness>
+					<data:ShapeFactor1>0.006269906809205</data:ShapeFactor1>
+					<data:ShapeFactor2>0.0025420931829828</data:ShapeFactor2>
+					<data:ShapeFactor3>0.8107284925335088</data:ShapeFactor3>
+					<data:ShapeFactor4>0.998430669595948</data:ShapeFactor4>
+					<data:probability_BARBUNYA>6.329567581052792E-5</data:probability_BARBUNYA>
+					<data:probability_BOMBAY>1.407992897789481E-11</data:probability_BOMBAY>
+					<data:probability_CALI>1.5415705783489895E-11</data:probability_CALI>
+					<data:probability_DERMASON>1.7694414760845684E-5</data:probability_DERMASON>
+					<data:probability_HOROZ>1.3143410168848831E-15</data:probability_HOROZ>
+					<data:probability_SEKER>0.9998756645529873</data:probability_SEKER>
+					<data:probability_SIRA>4.3345326944543324E-5</data:probability_SIRA>
+				</row>
+				<row>
+					<data:Area>69968.0</data:Area>
+					<data:Perimeter>1000.787119391958</data:Perimeter>
+					<data:MajorAxisLength>378.3860941180749</data:MajorAxisLength>
+					<data:MinorAxisLength>238.51128800365217</data:MinorAxisLength>
+					<data:AspectRation>1.586671288109121</data:AspectRation>
+					<data:Eccentricity>0.776127153202839</data:Eccentricity>
+					<data:ConvexArea>71584.0</data:ConvexArea>
+					<data:EquivDiameter>298.47321170193226</data:EquivDiameter>
+					<data:Extent>0.7760851184782249</data:Extent>
+					<data:Solidity>0.9774272726502152</data:Solidity>
+					<data:roundness>0.8778640971029193</data:roundness>
+					<data:Compactness>0.7888684397944109</data:Compactness>
+					<data:ShapeFactor1>0.0054079617371019</data:ShapeFactor1>
+					<data:ShapeFactor2>0.0012921072693745</data:ShapeFactor2>
+					<data:ShapeFactor3>0.6223610021735803</data:ShapeFactor3>
+					<data:ShapeFactor4>0.9871847081703296</data:ShapeFactor4>
+					<data:probability_BARBUNYA>0.020755527818241516</data:probability_BARBUNYA>
+					<data:probability_BOMBAY>4.4075391602328413E-4</data:probability_BOMBAY>
+					<data:probability_CALI>0.9785863692527383</data:probability_CALI>
+					<data:probability_DERMASON>5.4767762759041346E-14</data:probability_DERMASON>
+					<data:probability_HOROZ>3.3743092807948526E-6</data:probability_HOROZ>
+					<data:probability_SEKER>2.121848434055407E-13</data:probability_SEKER>
+					<data:probability_SIRA>2.1397470344892503E-4</data:probability_SIRA>
+				</row>
+				<row>
+					<data:Area>67804.0</data:Area>
+					<data:Perimeter>1016.9435503865658</data:Perimeter>
+					<data:MajorAxisLength>356.1991245214657</data:MajorAxisLength>
+					<data:MinorAxisLength>243.1699837043376</data:MinorAxisLength>
+					<data:AspectRation>1.465216857455897</data:AspectRation>
+					<data:Eccentricity>0.7302671872711177</data:Eccentricity>
+					<data:ConvexArea>68994.0</data:ConvexArea>
+					<data:EquivDiameter>293.82190391332006</data:EquivDiameter>
+					<data:Extent>0.7833658807261704</data:Extent>
+					<data:Solidity>0.9827468733077636</data:Solidity>
+					<data:roundness>0.8239559345339972</data:roundness>
+					<data:Compactness>0.8249941501617905</data:Compactness>
+					<data:ShapeFactor1>0.0052533168308078</data:ShapeFactor1>
+					<data:ShapeFactor2>0.0015015068016742</data:ShapeFactor2>
+					<data:ShapeFactor3>0.680704060467032</data:ShapeFactor3>
+					<data:ShapeFactor4>0.9968375736861</data:ShapeFactor4>
+					<data:probability_BARBUNYA>0.9999705465195895</data:probability_BARBUNYA>
+					<data:probability_BOMBAY>2.926863712828492E-6</data:probability_BOMBAY>
+					<data:probability_CALI>2.5594032308251966E-5</data:probability_CALI>
+					<data:probability_DERMASON>9.029356045478305E-16</data:probability_DERMASON>
+					<data:probability_HOROZ>3.5053660317797373E-11</data:probability_HOROZ>
+					<data:probability_SEKER>1.6655514350218973E-7</data:probability_SEKER>
+					<data:probability_SIRA>7.65994191201652E-7</data:probability_SIRA>
+				</row>
+				<row>
+					<data:Area>168573.0</data:Area>
+					<data:Perimeter>1552.2116313750294</data:Perimeter>
+					<data:MajorAxisLength>559.2454974183047</data:MajorAxisLength>
+					<data:MinorAxisLength>388.15858284845285</data:MinorAxisLength>
+					<data:AspectRation>1.4413069039610324</data:AspectRation>
+					<data:Eccentricity>0.7189806295977882</data:Eccentricity>
+					<data:ConvexArea>171623.0</data:ConvexArea>
+					<data:EquivDiameter>463.28663041931753</data:EquivDiameter>
+					<data:Extent>0.7715676539759075</data:Extent>
+					<data:Solidity>0.9822378334613924</data:Solidity>
+					<data:roundness>0.879664326360164</data:roundness>
+					<data:Compactness>0.8286699301552773</data:Compactness>
+					<data:ShapeFactor1>0.003317674089157</data:ShapeFactor1>
+					<data:ShapeFactor2>9.655885775637E-4</data:ShapeFactor2>
+					<data:ShapeFactor3>0.6869236210157326</data:ShapeFactor3>
+					<data:ShapeFactor4>0.9889961850181108</data:ShapeFactor4>
+					<data:probability_BARBUNYA>3.566585383334792E-7</data:probability_BARBUNYA>
+					<data:probability_BOMBAY>0.9999962142363392</data:probability_BOMBAY>
+					<data:probability_CALI>3.4291051224669935E-6</data:probability_CALI>
+					<data:probability_DERMASON>1.839357377543196E-46</data:probability_DERMASON>
+					<data:probability_HOROZ>1.4485331021781924E-25</data:probability_HOROZ>
+					<data:probability_SEKER>3.64400298590884E-23</data:probability_SEKER>
+					<data:probability_SIRA>1.289908717229879E-24</data:probability_SIRA>
+				</row>
+				<row>
+					<data:Area>61145.0</data:Area>
+					<data:Perimeter>1010.5766294365966</data:Perimeter>
+					<data:MajorAxisLength>352.267964466054</data:MajorAxisLength>
+					<data:MinorAxisLength>221.9830832273356</data:MinorAxisLength>
+					<data:AspectRation>1.591183740008094</data:AspectRation>
+					<data:Eccentricity>0.7724959366040933</data:Eccentricity>
+					<data:ConvexArea>62281.0</data:ConvexArea>
+					<data:EquivDiameter>279.0208151394615</data:EquivDiameter>
+					<data:Extent>0.7633879499276697</data:Extent>
+					<data:Solidity>0.9817602373437532</data:Solidity>
+					<data:roundness>0.7532228732229528</data:roundness>
+					<data:Compactness>0.7931474943470926</data:Compactness>
+					<data:ShapeFactor1>0.005761177978272</data:ShapeFactor1>
+					<data:ShapeFactor2>0.0014104109808229</data:ShapeFactor2>
+					<data:ShapeFactor3>0.6299617060415172</data:ShapeFactor3>
+					<data:ShapeFactor4>0.9969451801641658</data:ShapeFactor4>
+					<data:probability_BARBUNYA>0.9999930801706145</data:probability_BARBUNYA>
+					<data:probability_BOMBAY>2.9485902082602175E-8</data:probability_BOMBAY>
+					<data:probability_CALI>3.0499269676421123E-6</data:probability_CALI>
+					<data:probability_DERMASON>5.2384843422388944E-14</data:probability_DERMASON>
+					<data:probability_HOROZ>4.46556588871766E-8</data:probability_HOROZ>
+					<data:probability_SEKER>1.5321599373940093E-8</data:probability_SEKER>
+					<data:probability_SIRA>3.7804392050857202E-6</data:probability_SIRA>
+				</row>
+				<row>
+					<data:Area>70672.0</data:Area>
+					<data:Perimeter>1021.6943798515908</data:Perimeter>
+					<data:MajorAxisLength>387.8655771574059</data:MajorAxisLength>
+					<data:MinorAxisLength>232.3566932780392</data:MinorAxisLength>
+					<data:AspectRation>1.670131005440678</data:AspectRation>
+					<data:Eccentricity>0.8000970864745649</data:Eccentricity>
+					<data:ConvexArea>71444.0</data:ConvexArea>
+					<data:EquivDiameter>299.9714436506754</data:EquivDiameter>
+					<data:Extent>0.7273875733798725</data:Extent>
+					<data:Solidity>0.9891940830989236</data:Solidity>
+					<data:roundness>0.8510297712446352</data:roundness>
+					<data:Compactness>0.7735835350382053</data:Compactness>
+					<data:ShapeFactor1>0.0054882356154964</data:ShapeFactor1>
+					<data:ShapeFactor2>0.0012130066093348</data:ShapeFactor2>
+					<data:ShapeFactor3>0.5985839909490152</data:ShapeFactor3>
+					<data:ShapeFactor4>0.9986993988318156</data:ShapeFactor4>
+					<data:probability_BARBUNYA>0.8864795847728834</data:probability_BARBUNYA>
+					<data:probability_BOMBAY>6.818926931423894E-5</data:probability_BOMBAY>
+					<data:probability_CALI>0.11318150575128262</data:probability_CALI>
+					<data:probability_DERMASON>4.5240477237905904E-13</data:probability_DERMASON>
+					<data:probability_HOROZ>5.230507888274634E-6</data:probability_HOROZ>
+					<data:probability_SEKER>9.665507380413667E-6</data:probability_SEKER>
+					<data:probability_SIRA>2.5582419079873416E-4</data:probability_SIRA>
+				</row>
+				<row>
+					<data:Area>152869.0</data:Area>
+					<data:Perimeter>1475.473</data:Perimeter>
+					<data:MajorAxisLength>537.207402</data:MajorAxisLength>
+					<data:MinorAxisLength>365.4009172</data:MinorAxisLength>
+					<data:AspectRation>1.470186244</data:AspectRation>
+					<data:Eccentricity>0.733039629</data:Eccentricity>
+					<data:ConvexArea>154271.0</data:ConvexArea>
+					<data:EquivDiameter>441.1789387</data:EquivDiameter>
+					<data:Extent>0.761098913</data:Extent>
+					<data:Solidity>0.990912096</data:Solidity>
+					<data:roundness>0.882402552</data:roundness>
+					<data:Compactness>0.821245085</data:Compactness>
+					<data:ShapeFactor1>0.003514168</data:ShapeFactor1>
+					<data:ShapeFactor2>9.86038E-4</data:ShapeFactor2>
+					<data:ShapeFactor3>0.67444349</data:ShapeFactor3>
+					<data:ShapeFactor4>0.991557542</data:ShapeFactor4>
+					<data:probability_BARBUNYA>1.829031920655514E-6</data:probability_BARBUNYA>
+					<data:probability_BOMBAY>0.9998963648158133</data:probability_BOMBAY>
+					<data:probability_CALI>1.0180615226604872E-4</data:probability_CALI>
+					<data:probability_DERMASON>1.2901272147622562E-40</data:probability_DERMASON>
+					<data:probability_HOROZ>6.359588257362002E-22</data:probability_HOROZ>
+					<data:probability_SEKER>2.235051326291847E-17</data:probability_SEKER>
+					<data:probability_SIRA>1.1136697181092693E-20</data:probability_SIRA>
+				</row>
+			</InlineTable>
+		</ModelVerification>
+	</RegressionModel>
+</PMML>
