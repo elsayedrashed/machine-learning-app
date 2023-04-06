@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
+	<Header>
+		<Application name="SkLearn2PMML package" version="0.91.1"/>
+		<Timestamp>2023-04-06T03:52:35Z</Timestamp>
+	</Header>
+	<DataDictionary>
+		<DataField name="target" optype="categorical" dataType="integer">
+			<Value value="3"/>
+			<Value value="4"/>
+			<Value value="5"/>
+			<Value value="6"/>
+			<Value value="7"/>
+			<Value value="8"/>
+			<Value value="9"/>
+		</DataField>
+		<DataField name="fixed acidity" optype="continuous" dataType="double"/>
+		<DataField name="volatile acidity" optype="continuous" dataType="double"/>
+		<DataField name="citric acid" optype="continuous" dataType="double"/>
+		<DataField name="residual sugar" optype="continuous" dataType="double"/>
+		<DataField name="chlorides" optype="continuous" dataType="double"/>
+		<DataField name="free sulfur dioxide" optype="continuous" dataType="double"/>
+		<DataField name="total sulfur dioxide" optype="continuous" dataType="double"/>
+		<DataField name="density" optype="continuous" dataType="double"/>
+		<DataField name="pH" optype="continuous" dataType="double"/>
+		<DataField name="sulphates" optype="continuous" dataType="double"/>
+		<DataField name="alcohol" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<RegressionModel functionName="classification" algorithmName="sklearn.linear_model._logistic.LogisticRegression" normalizationMethod="softmax">
+		<MiningSchema>
+			<MiningField name="target" usageType="target"/>
+			<MiningField name="fixed acidity" missingValueReplacement="7.0424481017054195" missingValueTreatment="asMedian"/>
+			<MiningField name="volatile acidity" missingValueReplacement="0.28240539876731885" missingValueTreatment="asMedian"/>
+			<MiningField name="citric acid" missingValueReplacement="0.3486544689946044" missingValueTreatment="asMedian"/>
+			<MiningField name="residual sugar" missingValueReplacement="3.928275075024505" missingValueTreatment="asMedian"/>
+			<MiningField name="chlorides" missingValueReplacement="0.03747933648773495" missingValueTreatment="asMedian"/>
+			<MiningField name="free sulfur dioxide" missingValueReplacement="29.305846876724047" missingValueTreatment="asMedian"/>
+			<MiningField name="total sulfur dioxide" missingValueReplacement="121.37293151926474" missingValueTreatment="asMedian"/>
+			<MiningField name="density" missingValueReplacement="0.9928018452466336" missingValueTreatment="asMedian"/>
+			<MiningField name="pH" missingValueReplacement="3.234987422438473" missingValueTreatment="asMedian"/>
+			<MiningField name="sulphates" missingValueReplacement="0.4626871413614916" missingValueTreatment="asMedian"/>
+			<MiningField name="alcohol" missingValueReplacement="11.123191704913864" missingValueTreatment="asMedian"/>
+		</MiningSchema>
+		<Output>
+			<OutputField name="probability(3)" optype="continuous" dataType="double" feature="probability" value="3"/>
+			<OutputField name="probability(4)" optype="continuous" dataType="double" feature="probability" value="4"/>
+			<OutputField name="probability(5)" optype="continuous" dataType="double" feature="probability" value="5"/>
+			<OutputField name="probability(6)" optype="continuous" dataType="double" feature="probability" value="6"/>
+			<OutputField name="probability(7)" optype="continuous" dataType="double" feature="probability" value="7"/>
+			<OutputField name="probability(8)" optype="continuous" dataType="double" feature="probability" value="8"/>
+			<OutputField name="probability(9)" optype="continuous" dataType="double" feature="probability" value="9"/>
+		</Output>
+		<LocalTransformations>
+			<DerivedField name="standardScaler(fixed acidity)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="fixed acidity"/>
+						<Constant dataType="double">7.166812025847275</Constant>
+					</Apply>
+					<Constant dataType="double">1.0227466447533131</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(volatile acidity)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="volatile acidity"/>
+						<Constant dataType="double">0.310788485166363</Constant>
+					</Apply>
+					<Constant dataType="double">0.10725806605243454</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(citric acid)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="citric acid"/>
+						<Constant dataType="double">0.3452363924999843</Constant>
+					</Apply>
+					<Constant dataType="double">0.0986574633006925</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(residual sugar)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="residual sugar"/>
+						<Constant dataType="double">5.143161878480533</Constant>
+					</Apply>
+					<Constant dataType="double">3.847320199576793</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(chlorides)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="chlorides"/>
+						<Constant dataType="double">0.04237310771109639</Constant>
+					</Apply>
+					<Constant dataType="double">0.02205934978435592</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(free sulfur dioxide)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="free sulfur dioxide"/>
+						<Constant dataType="double">34.58817035900062</Constant>
+					</Apply>
+					<Constant dataType="double">28.627576829608174</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(total sulfur dioxide)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="total sulfur dioxide"/>
+						<Constant dataType="double">132.18221590179775</Constant>
+					</Apply>
+					<Constant dataType="double">54.76661288243175</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(density)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="density"/>
+						<Constant dataType="double">0.9931833056343023</Constant>
+					</Apply>
+					<Constant dataType="double">0.0026554550991543255</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(pH)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="pH"/>
+						<Constant dataType="double">3.224664480348001</Constant>
+					</Apply>
+					<Constant dataType="double">0.13516563188149458</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(sulphates)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="sulphates"/>
+						<Constant dataType="double">0.4770534944556492</Constant>
+					</Apply>
+					<Constant dataType="double">0.09929769826691574</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(alcohol)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="alcohol"/>
+						<Constant dataType="double">11.096781974308294</Constant>
+					</Apply>
+					<Constant dataType="double">1.2667905110077902</Constant>
+				</Apply>
+			</DerivedField>
+		</LocalTransformations>
+		<RegressionTable intercept="2.5699341514165592" targetCategory="3">
+			<NumericPredictor name="standardScaler(fixed acidity)" coefficient="-0.4379087582374685"/>
+			<NumericPredictor name="standardScaler(volatile acidity)" coefficient="0.7585940691534306"/>
+			<NumericPredictor name="standardScaler(citric acid)" coefficient="-0.29480671015518023"/>
+			<NumericPredictor name="standardScaler(residual sugar)" coefficient="-1.3488203231086149"/>
+			<NumericPredictor name="standardScaler(chlorides)" coefficient="1.554472697929786"/>
+			<NumericPredictor name="standardScaler(free sulfur dioxide)" coefficient="0.36236297242755455"/>
+			<NumericPredictor name="standardScaler(total sulfur dioxide)" coefficient="0.02364749211777032"/>
+			<NumericPredictor name="standardScaler(density)" coefficient="2.1242858230246724"/>
+			<NumericPredictor name="standardScaler(pH)" coefficient="-0.5605422492528441"/>
+			<NumericPredictor name="standardScaler(sulphates)" coefficient="-0.8373271024765362"/>
+			<NumericPredictor name="standardScaler(alcohol)" coefficient="-0.07634478844224926"/>
+		</RegressionTable>
+		<RegressionTable intercept="1.5986072973734256" targetCategory="4">
+			<NumericPredictor name="standardScaler(fixed acidity)" coefficient="-1.7185564672358145"/>
+			<NumericPredictor name="standardScaler(volatile acidity)" coefficient="1.1765395737768651"/>
+			<NumericPredictor name="standardScaler(citric acid)" coefficient="-0.3127625090416079"/>
+			<NumericPredictor name="standardScaler(residual sugar)" coefficient="-2.0851851484975197"/>
+			<NumericPredictor name="standardScaler(chlorides)" coefficient="1.1134790784431647"/>
+			<NumericPredictor name="standardScaler(free sulfur dioxide)" coefficient="-1.503041416015042"/>
+			<NumericPredictor name="standardScaler(total sulfur dioxide)" coefficient="-0.04162805834650971"/>
+			<NumericPredictor name="standardScaler(density)" coefficient="3.1770848985325744"/>
+			<NumericPredictor name="standardScaler(pH)" coefficient="-1.2933322701751702"/>
+			<NumericPredictor name="standardScaler(sulphates)" coefficient="-0.22190171295855757"/>
+			<NumericPredictor name="standardScaler(alcohol)" coefficient="-0.17582403453009343"/>
+		</RegressionTable>
+		<RegressionTable intercept="0.7364097055139474" targetCategory="5">
+			<NumericPredictor name="standardScaler(fixed acidity)" coefficient="-1.1429834235528034"/>
+			<NumericPredictor name="standardScaler(volatile acidity)" coefficient="0.7443014269132168"/>
+			<NumericPredictor name="standardScaler(citric acid)" coefficient="-0.17634860633889624"/>
+			<NumericPredictor name="standardScaler(residual sugar)" coefficient="-0.34305829895767026"/>
+			<NumericPredictor name="standardScaler(chlorides)" coefficient="1.1440851158707674"/>
+			<NumericPredictor name="standardScaler(free sulfur dioxide)" coefficient="-0.6874325217605874"/>
+			<NumericPredictor name="standardScaler(total sulfur dioxide)" coefficient="0.40340756549700696"/>
+			<NumericPredictor name="standardScaler(density)" coefficient="0.016035794868413725"/>
+			<NumericPredictor name="standardScaler(pH)" coefficient="-0.939691444867826"/>
+			<NumericPredictor name="standardScaler(sulphates)" coefficient="-0.24524296591940561"/>
+			<NumericPredictor name="standardScaler(alcohol)" coefficient="-2.2918842990423305"/>
+		</RegressionTable>
+		<RegressionTable intercept="-0.03191967362290702" targetCategory="6">
+			<NumericPredictor name="standardScaler(fixed acidity)" coefficient="-1.2540958725868248"/>
+			<NumericPredictor name="standardScaler(volatile acidity)" coefficient="-0.19933761555565507"/>
+			<NumericPredictor name="standardScaler(citric acid)" coefficient="-0.2733686063305346"/>
+			<NumericPredictor name="standardScaler(residual sugar)" coefficient="0.08621884321111162"/>
+			<NumericPredictor name="standardScaler(chlorides)" coefficient="1.2812771628558224"/>
+			<NumericPredictor name="standardScaler(free sulfur dioxide)" coefficient="0.2180636949897152"/>
+			<NumericPredictor name="standardScaler(total sulfur dioxide)" coefficient="-0.6615328590378572"/>
+			<NumericPredictor name="standardScaler(density)" coefficient="-0.02536667152870858"/>
+			<NumericPredictor name="standardScaler(pH)" coefficient="-0.866485413457642"/>
+			<NumericPredictor name="standardScaler(sulphates)" coefficient="0.12521314061321517"/>
+			<NumericPredictor name="standardScaler(alcohol)" coefficient="-0.8774463821698955"/>
+		</RegressionTable>
+		<RegressionTable intercept="1.9718545597396702" targetCategory="7">
+			<NumericPredictor name="standardScaler(fixed acidity)" coefficient="-0.9002942591754016"/>
+			<NumericPredictor name="standardScaler(volatile acidity)" coefficient="-0.40118970163135953"/>
+			<NumericPredictor name="standardScaler(citric acid)" coefficient="-0.5308555611622818"/>
+			<NumericPredictor name="standardScaler(residual sugar)" coefficient="0.21082659480742008"/>
+			<NumericPredictor name="standardScaler(chlorides)" coefficient="0.8790210514233662"/>
+			<NumericPredictor name="standardScaler(free sulfur dioxide)" coefficient="0.13326224066400447"/>
+			<NumericPredictor name="standardScaler(total sulfur dioxide)" coefficient="-0.07821668751164425"/>
+			<NumericPredictor name="standardScaler(density)" coefficient="-0.32946769662184294"/>
+			<NumericPredictor name="standardScaler(pH)" coefficient="-0.559273939336003"/>
+			<NumericPredictor name="standardScaler(sulphates)" coefficient="0.31021266625705807"/>
+			<NumericPredictor name="standardScaler(alcohol)" coefficient="0.4425388408201913"/>
+		</RegressionTable>
+		<RegressionTable intercept="2.1533988571840967" targetCategory="8">
+			<NumericPredictor name="standardScaler(fixed acidity)" coefficient="-1.0702418998787435"/>
+			<NumericPredictor name="standardScaler(volatile acidity)" coefficient="-0.16914504130904817"/>
+			<NumericPredictor name="standardScaler(citric acid)" coefficient="-0.1829186593100633"/>
+			<NumericPredictor name="standardScaler(residual sugar)" coefficient="0.5556882209177139"/>
+			<NumericPredictor name="standardScaler(chlorides)" coefficient="1.4630649906648197"/>
+			<NumericPredictor name="standardScaler(free sulfur dioxide)" coefficient="0.37288167227216534"/>
+			<NumericPredictor name="standardScaler(total sulfur dioxide)" coefficient="-0.17123864138768538"/>
+			<NumericPredictor name="standardScaler(density)" coefficient="-0.18855740296159892"/>
+			<NumericPredictor name="standardScaler(pH)" coefficient="-0.4341504642112293"/>
+			<NumericPredictor name="standardScaler(sulphates)" coefficient="0.1348979955764174"/>
+			<NumericPredictor name="standardScaler(alcohol)" coefficient="1.310008847169955"/>
+		</RegressionTable>
+		<RegressionTable intercept="-8.998284897605032" targetCategory="9">
+			<NumericPredictor name="standardScaler(fixed acidity)" coefficient="6.524080680667065"/>
+			<NumericPredictor name="standardScaler(volatile acidity)" coefficient="-1.9097627113474396"/>
+			<NumericPredictor name="standardScaler(citric acid)" coefficient="1.7710606523385803"/>
+			<NumericPredictor name="standardScaler(residual sugar)" coefficient="2.924330111627565"/>
+			<NumericPredictor name="standardScaler(chlorides)" coefficient="-7.435400097187729"/>
+			<NumericPredictor name="standardScaler(free sulfur dioxide)" coefficient="1.1039033574221762"/>
+			<NumericPredictor name="standardScaler(total sulfur dioxide)" coefficient="0.5255611886689167"/>
+			<NumericPredictor name="standardScaler(density)" coefficient="-4.774014745313481"/>
+			<NumericPredictor name="standardScaler(pH)" coefficient="4.653475781300739"/>
+			<NumericPredictor name="standardScaler(sulphates)" coefficient="0.7341479789078096"/>
+			<NumericPredictor name="standardScaler(alcohol)" coefficient="1.6689518161943846"/>
+		</RegressionTable>
+		<ModelVerification recordCount="10">
+			<VerificationFields>
+				<VerificationField field="fixed acidity" column="data:fixed_x0020_acidity"/>
+				<VerificationField field="volatile acidity" column="data:volatile_x0020_acidity"/>
+				<VerificationField field="citric acid" column="data:citric_x0020_acid"/>
+				<VerificationField field="residual sugar" column="data:residual_x0020_sugar"/>
+				<VerificationField field="chlorides" column="data:chlorides"/>
+				<VerificationField field="free sulfur dioxide" column="data:free_x0020_sulfur_x0020_dioxide"/>
+				<VerificationField field="total sulfur dioxide" column="data:total_x0020_sulfur_x0020_dioxide"/>
+				<VerificationField field="density" column="data:density"/>
+				<VerificationField field="pH" column="data:pH"/>
+				<VerificationField field="sulphates" column="data:sulphates"/>
+				<VerificationField field="alcohol" column="data:alcohol"/>
+				<VerificationField field="probability(3)" column="data:probability_3" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+				<VerificationField field="probability(4)" column="data:probability_4" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+				<VerificationField field="probability(5)" column="data:probability_5" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+				<VerificationField field="probability(6)" column="data:probability_6" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+				<VerificationField field="probability(7)" column="data:probability_7" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+				<VerificationField field="probability(8)" column="data:probability_8" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+				<VerificationField field="probability(9)" column="data:probability_9" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+			</VerificationFields>
+			<InlineTable>
+				<row>
+					<data:fixed_x0020_acidity>7.180905149870029</data:fixed_x0020_acidity>
+					<data:volatile_x0020_acidity>0.254606323341998</data:volatile_x0020_acidity>
+					<data:citric_x0020_acid>0.4549411017229872</data:citric_x0020_acid>
+					<data:residual_x0020_sugar>2.1460632334199805</data:residual_x0020_sugar>
+					<data:chlorides>0.0317303161670999</data:chlorides>
+					<data:free_x0020_sulfur_x0020_dioxide>29.921264668399605</data:free_x0020_sulfur_x0020_dioxide>
+					<data:total_x0020_sulfur_x0020_dioxide>120.01177965540256</data:total_x0020_sulfur_x0020_dioxide>
+					<data:density>0.990367420958225</data:density>
+					<data:pH>3.345728455038991</data:pH>
+					<data:sulphates>0.4361810299740059</data:sulphates>
+					<data:alcohol>12.79212646683996</data:alcohol>
+					<data:probability_3>0.0012285818482917895</data:probability_3>
+					<data:probability_4>1.2540692308917451E-4</data:probability_4>
+					<data:probability_5>3.6528477023410796E-5</data:probability_5>
+					<data:probability_6>1.1593109206343237E-4</data:probability_6>
+					<data:probability_7>0.006976324766530428</data:probability_7>
+					<data:probability_8>0.020368674935884425</data:probability_8>
+					<data:probability_9>0.9711485519571174</data:probability_9>
+				</row>
+				<row>
+					<data:fixed_x0020_acidity>4.9</data:fixed_x0020_acidity>
+					<data:volatile_x0020_acidity>0.235</data:volatile_x0020_acidity>
+					<data:citric_x0020_acid>0.27</data:citric_x0020_acid>
+					<data:residual_x0020_sugar>11.75</data:residual_x0020_sugar>
+					<data:chlorides>0.03</data:chlorides>
+					<data:free_x0020_sulfur_x0020_dioxide>34.0</data:free_x0020_sulfur_x0020_dioxide>
+					<data:total_x0020_sulfur_x0020_dioxide>118.0</data:total_x0020_sulfur_x0020_dioxide>
+					<data:density>0.9954</data:density>
+					<data:pH>3.07</data:pH>
+					<data:sulphates>0.5</data:sulphates>
+					<data:alcohol>9.4</data:alcohol>
+					<data:probability_3>0.015281775618604223</data:probability_3>
+					<data:probability_4>0.2091382479636722</data:probability_4>
+					<data:probability_5>0.4175995211822989</data:probability_5>
+					<data:probability_6>0.1893045977260098</data:probability_6>
+					<data:probability_7>0.11693143650081286</data:probability_7>
+					<data:probability_8>0.05174442100859302</data:probability_8>
+					<data:probability_9>9.070551320013966E-15</data:probability_9>
+				</row>
+				<row>
+					<data:fixed_x0020_acidity>7.161238224228855</data:fixed_x0020_acidity>
+					<data:volatile_x0020_acidity>0.2559174517180763</data:volatile_x0020_acidity>
+					<data:citric_x0020_acid>0.4634634361674959</data:citric_x0020_acid>
+					<data:residual_x0020_sugar>2.1591745171807637</data:residual_x0020_sugar>
+					<data:chlorides>0.0317958725859038</data:chlorides>
+					<data:free_x0020_sulfur_x0020_dioxide>30.183490343615254</data:free_x0020_sulfur_x0020_dioxide>
+					<data:total_x0020_sulfur_x0020_dioxide>118.3073127665008</data:total_x0020_sulfur_x0020_dioxide>
+					<data:density>0.990351031853524</data:density>
+					<data:pH>3.3516285327313438</data:pH>
+					<data:sulphates>0.4322476448457711</data:sulphates>
+					<data:alcohol>12.818349034361528</data:alcohol>
+					<data:probability_3>9.768552445214695E-4</data:probability_3>
+					<data:probability_4>9.431811082759756E-5</data:probability_4>
+					<data:probability_5>2.712213971189313E-5</data:probability_5>
+					<data:probability_6>8.991264503304137E-5</data:probability_6>
+					<data:probability_7>0.005325103100653512</data:probability_7>
+					<data:probability_8>0.01673600761892158</data:probability_8>
+					<data:probability_9>0.976750681140331</data:probability_9>
+				</row>
+				<row>
+					<data:fixed_x0020_acidity>6.45</data:fixed_x0020_acidity>
+					<data:volatile_x0020_acidity>0.14</data:volatile_x0020_acidity>
+					<data:citric_x0020_acid>0.42</data:citric_x0020_acid>
+					<data:residual_x0020_sugar>1.2</data:residual_x0020_sugar>
+					<data:chlorides>0.05</data:chlorides>
+					<data:free_x0020_sulfur_x0020_dioxide>51.0</data:free_x0020_sulfur_x0020_dioxide>
+					<data:total_x0020_sulfur_x0020_dioxide>129.0</data:total_x0020_sulfur_x0020_dioxide>
+					<data:density>0.99116</data:density>
+					<data:pH>3.27</data:pH>
+					<data:sulphates>0.69</data:sulphates>
+					<data:alcohol>11.1</data:alcohol>
+					<data:probability_3>0.011962926498830828</data:probability_3>
+					<data:probability_4>0.0046513146068584655</data:probability_4>
+					<data:probability_5>0.009040214315103655</data:probability_5>
+					<data:probability_6>0.0536709484592745</data:probability_6>
+					<data:probability_7>0.5182730364497119</data:probability_7>
+					<data:probability_8>0.40239383910521864</data:probability_8>
+					<data:probability_9>7.720565001958221E-6</data:probability_9>
+				</row>
+				<row>
+					<data:fixed_x0020_acidity>5.1</data:fixed_x0020_acidity>
+					<data:volatile_x0020_acidity>0.33</data:volatile_x0020_acidity>
+					<data:citric_x0020_acid>0.27</data:citric_x0020_acid>
+					<data:residual_x0020_sugar>6.7</data:residual_x0020_sugar>
+					<data:chlorides>0.022</data:chlorides>
+					<data:free_x0020_sulfur_x0020_dioxide>44.0</data:free_x0020_sulfur_x0020_dioxide>
+					<data:total_x0020_sulfur_x0020_dioxide>129.0</data:total_x0020_sulfur_x0020_dioxide>
+					<data:density>0.99221</data:density>
+					<data:pH>3.36</data:pH>
+					<data:sulphates>0.39</data:sulphates>
+					<data:alcohol>11.0</data:alcohol>
+					<data:probability_3>0.0872775429185077</data:probability_3>
+					<data:probability_4>0.05584581455414331</data:probability_4>
+					<data:probability_5>0.08389955606962464</data:probability_5>
+					<data:probability_6>0.047135004426497984</data:probability_6>
+					<data:probability_7>0.3363662370718197</data:probability_7>
+					<data:probability_8>0.38947465896168076</data:probability_8>
+					<data:probability_9>1.185997725972994E-6</data:probability_9>
+				</row>
+				<row>
+					<data:fixed_x0020_acidity>8.755593911119213</data:fixed_x0020_acidity>
+					<data:volatile_x0020_acidity>0.2371863207003471</data:volatile_x0020_acidity>
+					<data:citric_x0020_acid>0.4502373499422454</data:citric_x0020_acid>
+					<data:residual_x0020_sugar>2.7484734128518507</data:residual_x0020_sugar>
+					<data:chlorides>0.0437661020584837</data:chlorides>
+					<data:free_x0020_sulfur_x0020_dioxide>18.0</data:free_x0020_sulfur_x0020_dioxide>
+					<data:total_x0020_sulfur_x0020_dioxide>106.2983061754514</data:total_x0020_sulfur_x0020_dioxide>
+					<data:density>0.995154033876491</data:density>
+					<data:pH>3.132745711812269</data:pH>
+					<data:sulphates>0.5112881646787037</data:sulphates>
+					<data:alcohol>10.3169489707581</data:alcohol>
+					<data:probability_3>0.5069481140469052</data:probability_3>
+					<data:probability_4>0.4271229965436422</data:probability_4>
+					<data:probability_5>0.03225215332439279</data:probability_5>
+					<data:probability_6>0.007195906216480596</data:probability_6>
+					<data:probability_7>0.01778679431280192</data:probability_7>
+					<data:probability_8>0.008666359718233853</data:probability_8>
+					<data:probability_9>2.7675837543518824E-5</data:probability_9>
+				</row>
+				<row>
+					<data:fixed_x0020_acidity>8.096971969010077</data:fixed_x0020_acidity>
+					<data:volatile_x0020_acidity>0.291996261193347</data:volatile_x0020_acidity>
+					<data:citric_x0020_acid>0.3512299064292339</data:citric_x0020_acid>
+					<data:residual_x0020_sugar>1.9830654190564525</data:residual_x0020_sugar>
+					<data:chlorides>0.0386773832377419</data:chlorides>
+					<data:free_x0020_sulfur_x0020_dioxide>26.58467290471774</data:free_x0020_sulfur_x0020_dioxide>
+					<data:total_x0020_sulfur_x0020_dioxide>173.7540187141532</data:total_x0020_sulfur_x0020_dioxide>
+					<data:density>0.9946923364523588</data:density>
+					<data:pH>3.343992522386694</data:pH>
+					<data:sulphates>0.4653831773820565</data:sulphates>
+					<data:alcohol>10.061495321461695</data:alcohol>
+					<data:probability_3>0.6893334565714772</data:probability_3>
+					<data:probability_4>0.22960752840344115</data:probability_4>
+					<data:probability_5>0.06054192761367786</data:probability_5>
+					<data:probability_6>0.0022208680293493255</data:probability_6>
+					<data:probability_7>0.01309979689841138</data:probability_7>
+					<data:probability_8>0.004775750706853774</data:probability_8>
+					<data:probability_9>4.206717767893679E-4</data:probability_9>
+				</row>
+				<row>
+					<data:fixed_x0020_acidity>7.373143743746932</data:fixed_x0020_acidity>
+					<data:volatile_x0020_acidity>0.3478093760421779</data:volatile_x0020_acidity>
+					<data:citric_x0020_acid>0.5278093760421779</data:citric_x0020_acid>
+					<data:residual_x0020_sugar>13.324381247915644</data:residual_x0020_sugar>
+					<data:chlorides>0.0559504998332515</data:chlorides>
+					<data:free_x0020_sulfur_x0020_dioxide>59.83043777096626</data:free_x0020_sulfur_x0020_dioxide>
+					<data:total_x0020_sulfur_x0020_dioxide>192.5123750416871</data:total_x0020_sulfur_x0020_dioxide>
+					<data:density>0.9987033912445806</data:density>
+					<data:pH>3.09900999666503</data:pH>
+					<data:sulphates>0.4997524991662576</data:sulphates>
+					<data:alcohol>8.697524991662576</data:alcohol>
+					<data:probability_3>0.45358462644196823</data:probability_3>
+					<data:probability_4>0.10389307112540985</data:probability_4>
+					<data:probability_5>0.41818165125538437</data:probability_5>
+					<data:probability_6>0.013655909715537951</data:probability_6>
+					<data:probability_7>0.0038685356454764446</data:probability_7>
+					<data:probability_8>0.006816205807147106</data:probability_8>
+					<data:probability_9>9.076218416675136E-12</data:probability_9>
+				</row>
+				<row>
+					<data:fixed_x0020_acidity>6.41454878148335</data:fixed_x0020_acidity>
+					<data:volatile_x0020_acidity>0.1553345532105615</data:volatile_x0020_acidity>
+					<data:citric_x0020_acid>0.3614548781483349</data:citric_x0020_acid>
+					<data:residual_x0020_sugar>1.7660528432055176</data:residual_x0020_sugar>
+					<data:chlorides>0.0342909756296669</data:chlorides>
+					<data:free_x0020_sulfur_x0020_dioxide>43.09699187655566</data:free_x0020_sulfur_x0020_dioxide>
+					<data:total_x0020_sulfur_x0020_dioxide>149.8545121851665</data:total_x0020_sulfur_x0020_dioxide>
+					<data:density>0.9922630447197612</data:density>
+					<data:pH>3.415150406172217</data:pH>
+					<data:sulphates>0.6846654467894384</data:sulphates>
+					<data:alcohol>10.932105686411036</data:alcohol>
+					<data:probability_3>0.021684326842393437</data:probability_3>
+					<data:probability_4>0.013105889854222922</data:probability_4>
+					<data:probability_5>0.013492483168700178</data:probability_5>
+					<data:probability_6>0.03226092382386384</data:probability_6>
+					<data:probability_7>0.6153464455600609</data:probability_7>
+					<data:probability_8>0.2765275374742612</data:probability_8>
+					<data:probability_9>0.027582393276497617</data:probability_9>
+				</row>
+				<row>
+					<data:fixed_x0020_acidity>6.488648163649201</data:fixed_x0020_acidity>
+					<data:volatile_x0020_acidity>0.1964327072654526</data:volatile_x0020_acidity>
+					<data:citric_x0020_acid>0.2837839454502663</data:citric_x0020_acid>
+					<data:residual_x0020_sugar>1.4681110181047927</data:residual_x0020_sugar>
+					<data:chlorides>0.04543240818246</data:chlorides>
+					<data:free_x0020_sulfur_x0020_dioxide>21.924321090994678</data:free_x0020_sulfur_x0020_dioxide>
+					<data:total_x0020_sulfur_x0020_dioxide>89.96216054549734</data:total_x0020_sulfur_x0020_dioxide>
+					<data:density>0.9903489716473078</data:density>
+					<data:pH>3.1754592654596805</data:pH>
+					<data:sulphates>0.5031888981895207</data:sulphates>
+					<data:alcohol>11.7113518363508</data:alcohol>
+					<data:probability_3>0.028611349937652426</data:probability_3>
+					<data:probability_4>0.03557848531445696</data:probability_4>
+					<data:probability_5>0.012839525174613247</data:probability_5>
+					<data:probability_6>0.04273508144861541</data:probability_6>
+					<data:probability_7>0.5000077614930388</data:probability_7>
+					<data:probability_8>0.3802277714892981</data:probability_8>
+					<data:probability_9>2.5142324996260898E-8</data:probability_9>
+				</row>
+			</InlineTable>
+		</ModelVerification>
+	</RegressionModel>
+</PMML>
