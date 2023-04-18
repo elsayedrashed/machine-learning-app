@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2">
+  <Header copyright="dmmil">
+    <Application name="KNIME" version="4.7.2"/>
+  </Header>
+  <DataDictionary numberOfFields="8">
+    <DataField name="MedInc" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="HouseAge" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="AveRooms" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="AveBedrms" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="Population" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="AveOccup" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="Latitude" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="PRICE" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+  </DataDictionary>
+  <RegressionModel functionName="regression" algorithmName="PolynomialRegression" modelName="KNIME Polynomial Regression" targetFieldName="PRICE">
+    <MiningSchema>
+      <MiningField name="MedInc" invalidValueTreatment="asIs"/>
+      <MiningField name="HouseAge" invalidValueTreatment="asIs"/>
+      <MiningField name="AveRooms" invalidValueTreatment="asIs"/>
+      <MiningField name="AveBedrms" invalidValueTreatment="asIs"/>
+      <MiningField name="Population" invalidValueTreatment="asIs"/>
+      <MiningField name="AveOccup" invalidValueTreatment="asIs"/>
+      <MiningField name="Latitude" invalidValueTreatment="asIs"/>
+      <MiningField name="PRICE" invalidValueTreatment="asIs" usageType="target"/>
+    </MiningSchema>
+    <RegressionTable intercept="0.17245718276242625">
+      <NumericPredictor name="MedInc" coefficient="0.543401629158113"/>
+      <NumericPredictor name="MedInc" exponent="2" coefficient="0.7823488927805299"/>
+      <NumericPredictor name="MedInc" exponent="3" coefficient="-0.5445911909544017"/>
+      <NumericPredictor name="HouseAge" coefficient="0.603185789685483"/>
+      <NumericPredictor name="HouseAge" exponent="2" coefficient="-0.870377179794003"/>
+      <NumericPredictor name="HouseAge" exponent="3" coefficient="0.5120829764053078"/>
+      <NumericPredictor name="AveRooms" coefficient="-0.7066672810313891"/>
+      <NumericPredictor name="AveRooms" exponent="2" coefficient="0.2692653682605821"/>
+      <NumericPredictor name="AveRooms" exponent="3" coefficient="0.20864177294565991"/>
+      <NumericPredictor name="AveBedrms" coefficient="0.13161102290494733"/>
+      <NumericPredictor name="AveBedrms" exponent="2" coefficient="0.062394205084143166"/>
+      <NumericPredictor name="AveBedrms" exponent="3" coefficient="-0.09634002258953438"/>
+      <NumericPredictor name="Population" coefficient="-0.04633193936736313"/>
+      <NumericPredictor name="Population" exponent="2" coefficient="0.2892532720593518"/>
+      <NumericPredictor name="Population" exponent="3" coefficient="-0.20750601854273024"/>
+      <NumericPredictor name="AveOccup" coefficient="0.05799774157706695"/>
+      <NumericPredictor name="AveOccup" exponent="2" coefficient="-1.0537569527179742"/>
+      <NumericPredictor name="AveOccup" exponent="3" coefficient="0.8204769475112491"/>
+      <NumericPredictor name="Latitude" coefficient="0.29403696146132363"/>
+      <NumericPredictor name="Latitude" exponent="2" coefficient="-0.6480997189651321"/>
+      <NumericPredictor name="Latitude" exponent="3" coefficient="0.22997836952931258"/>
+    </RegressionTable>
+  </RegressionModel>
+</PMML>
